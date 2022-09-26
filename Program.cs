@@ -65,7 +65,7 @@ int GetSumFirstRow(int [,] array)
     int sumMin = 0;
     for (int i = 0, j = 0; j < array.GetLength(1); j++)
         {
-            sumMin = sumMin + array[i,j]; 
+            sumMin =+ array[i,j]; 
         }
 return sumMin;
 }
@@ -79,7 +79,7 @@ int GetRowMinSum(int [,] array, int sumMin)
        
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            sumRow = sumRow + array[i,j];
+            sumRow =+ array[i,j];
         }
         if (sumRow < sumMin)
         {
