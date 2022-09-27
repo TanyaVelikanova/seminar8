@@ -90,4 +90,47 @@ int GetRowMinSum(int [,] array, int sumMin)
     return RowMinSum;
 }
 
+//Залача 3. Задайте две матрицы. Напишите программу, которая будет находить произведение 
+//двух матриц.
+
+int rows1 = new Random().Next(2,3);
+int columns1 = new Random().Next(2,3);
+int[,] array1 = new int[rows1, columns1];
+int rows2 = new Random().Next(2,3);
+int columns2 = new Random().Next(2,3);
+int[,] array2 = new int[rows2, columns2];
+
+CreateArray(array1);
+CreateArray(array2);
+PrintArray(array1);
+Console.WriteLine();
+PrintArray(array2);
+
+if (array1.GetLength(1) == array2.GetLength(0))
+{
+    int[,] array3 = MultiplyMatrix(array1, array2);
+    Console.WriteLine("Произведение 2-х матриц");
+    PrintArray(array3);
+}
+else Console.WriteLine("Не выполняется условие для произведения");
+
+ 
+int[,] MultiplyMatrix(int[,] array1, int[,] array2)
+{  
+    int[, ] arrayresult = new int[array1.GetLength(0),array2.GetLength(1)];
+    for (int i = 0; i < array1.GetLength(0); i++)
+    {
+        for (int j = 0; j < array2.GetLength(1); j++)
+        {   
+            int tmpSum = 0;
+            for (int k = 0; k < array2.GetLength(0); k++)
+            {
+               tmpSum = tmpSum + (array1[i,k] * array2[k,j]);                     
+            }
+             arrayresult[i,j] = tmpSum ; 
+        }
+    }
+    return arrayresult;
+}
+ 
 
